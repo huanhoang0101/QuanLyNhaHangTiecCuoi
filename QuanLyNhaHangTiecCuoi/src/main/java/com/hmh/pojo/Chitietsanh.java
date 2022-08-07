@@ -130,7 +130,7 @@ public class Chitietsanh implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tmh.pojo.Chitietsanh[ maChiTiet=" + maChiTiet + " ]";
+        return "com.hmh.pojo.Chitietsanh[ maChiTiet=" + maChiTiet + " ]";
     }
     
 }

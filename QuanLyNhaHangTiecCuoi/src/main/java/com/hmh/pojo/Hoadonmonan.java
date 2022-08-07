@@ -129,7 +129,7 @@ public class Hoadonmonan implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tmh.pojo.Hoadonmonan[ maHDMA=" + maHDMA + " ]";
+        return "com.hmh.pojo.Hoadonmonan[ maHDMA=" + maHDMA + " ]";
     }
     
 }

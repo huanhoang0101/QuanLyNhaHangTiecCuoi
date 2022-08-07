@@ -121,7 +121,7 @@ public class Dichvu implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tmh.pojo.Dichvu[ maDV=" + maDV + " ]";
+        return "com.hmh.pojo.Dichvu[ maDV=" + maDV + " ]";
     }
     
 }

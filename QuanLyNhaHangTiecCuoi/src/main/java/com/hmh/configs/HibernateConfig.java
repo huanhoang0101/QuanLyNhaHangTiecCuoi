@@ -7,8 +7,7 @@ package com.hmh.configs;
 
 import java.util.Properties;
 import javax.sql.DataSource;
-import static org.hibernate.cfg.AvailableSettings.DIALECT;
-import static org.hibernate.cfg.AvailableSettings.SHOW_SQL;
+import org.hibernate.cfg.AvailableSettings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,15 +29,14 @@ public class HibernateConfig {
     private Environment env;
 
     @Bean
-    public LocalSessionFactoryBean getSessionFactory() {
-        LocalSessionFactoryBean sessionFactory
-                = new LocalSessionFactoryBean();
-        sessionFactory.setPackagesToScan(new String[]{
+    public LocalSessionFactoryBean sessionFactory() {
+        LocalSessionFactoryBean f = new LocalSessionFactoryBean();
+        f.setPackagesToScan(new String[]{
             "com.hmh.pojo"
         });
-        sessionFactory.setDataSource(dataSource());
-        sessionFactory.setHibernateProperties(hibernateProperties());
-        return sessionFactory;
+        f.setDataSource(dataSource());
+        f.setHibernateProperties(hibernateProperties());
+        return f;
     }
         @Bean
         public DataSource dataSource() {
@@ -56,17 +54,16 @@ public class HibernateConfig {
 
     private Properties hibernateProperties() {
         Properties props = new Properties();
-        props.put(DIALECT, env.getProperty("hibernate.dialect"));
-        props.put(SHOW_SQL, env.getProperty("hibernate.showSql"));
+        props.put(AvailableSettings.DIALECT, env.getProperty("hibernate.dialect"));
+        props.put(AvailableSettings.SHOW_SQL, env.getProperty("hibernate.showSql"));
         return props;
     }
 
     @Bean
     public HibernateTransactionManager transactionManager() {
-        HibernateTransactionManager transactionManager
+        HibernateTransactionManager t
                 = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(
-                getSessionFactory().getObject());
-        return transactionManager;
+        t.setSessionFactory(sessionFactory().getObject());
+        return t;
     }
 }

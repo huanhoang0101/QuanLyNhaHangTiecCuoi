@@ -56,14 +56,14 @@
     <div class="container">
         <div class="row">
 
-            <c:forEach items="${product}" var="p">
+            <c:forEach items="${menus}" var="m">
                 <div class="col-md-4 col-xs-12">
                     <div class="card">
-                        <img class="card-img-top" class="img-fluid" src="https://res.cloudinary.com/dxxwcby8l/image/upload/v1647248652/dkeolz3ghc0eino87iec.jpg" alt="Card image">
+                        <img class="card-img-top" class="img-fluid" src="https://res.cloudinary.com/dnrpggpn0/image/upload/v1659920425/Foods/com_tam_w9raak.png?fbclid=IwAR0jHz_RCpjREAENUUR6NKoNb3L14Pevuv4iq3casOjzcgZqxYaolVpx5uM" alt="Card image">
                         <div class="card-body">
-                            <h4 class="card-title">${p}</h4>
-                            <p class="card-text">Khai vị</p>
-                            <p class="card-text">50.000 VNĐ</p>
+                            <h4 class="card-title">${m.tenMon}</h4>
+                            <p class="card-text">${m.loaiMon}</p>
+                            <p class="card-text">${m.gia}</p>
                             <a href="#" class="btn btn-primary">See Profile</a>
                         </div>
                     </div>

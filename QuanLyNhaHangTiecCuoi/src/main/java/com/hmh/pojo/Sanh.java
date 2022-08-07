@@ -33,7 +33,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Sanh.findAll", query = "SELECT s FROM Sanh s"),
     @NamedQuery(name = "Sanh.findByMaSanh", query = "SELECT s FROM Sanh s WHERE s.maSanh = :maSanh"),
     @NamedQuery(name = "Sanh.findByTen", query = "SELECT s FROM Sanh s WHERE s.ten = :ten"),
-    @NamedQuery(name = "Sanh.findBySoBan", query = "SELECT s FROM Sanh s WHERE s.soBan = :soBan")})
+    @NamedQuery(name = "Sanh.findBySoBan", query = "SELECT s FROM Sanh s WHERE s.soBan = :soBan"),
+    @NamedQuery(name = "Sanh.findByImage", query = "SELECT s FROM Sanh s WHERE s.image = :image")})
 public class Sanh implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +51,9 @@ public class Sanh implements Serializable {
     @Size(max = 45)
     @Column(name = "SoBan")
     private String soBan;
+    @Size(max = 100)
+    @Column(name = "image")
+    private String image;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sanhMaSanh")
     private Set<Chitietsanh> chitietsanhSet;
 
@@ -89,6 +93,14 @@ public class Sanh implements Serializable {
         this.soBan = soBan;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @XmlTransient
     public Set<Chitietsanh> getChitietsanhSet() {
         return chitietsanhSet;
@@ -120,7 +132,7 @@ public class Sanh implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tmh.pojo.Sanh[ maSanh=" + maSanh + " ]";
+        return "com.hmh.pojo.Sanh[ maSanh=" + maSanh + " ]";
     }
     
 }

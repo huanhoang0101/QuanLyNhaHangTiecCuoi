@@ -184,7 +184,7 @@ public class Hoadon implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tmh.pojo.Hoadon[ maHD=" + maHD + " ]";
+        return "com.hmh.pojo.Hoadon[ maHD=" + maHD + " ]";
     }
     
 }

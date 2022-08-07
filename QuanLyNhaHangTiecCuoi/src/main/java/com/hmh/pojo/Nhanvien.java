@@ -182,7 +182,7 @@ public class Nhanvien implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tmh.pojo.Nhanvien[ maNV=" + maNV + " ]";
+        return "com.hmh.pojo.Nhanvien[ maNV=" + maNV + " ]";
     }
     
 }

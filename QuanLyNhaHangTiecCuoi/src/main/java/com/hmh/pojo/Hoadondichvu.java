@@ -96,7 +96,7 @@ public class Hoadondichvu implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tmh.pojo.Hoadondichvu[ maHDDV=" + maHDDV + " ]";
+        return "com.hmh.pojo.Hoadondichvu[ maHDDV=" + maHDDV + " ]";
     }
     
 }

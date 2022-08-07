@@ -34,7 +34,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Menu.findByMaMenu", query = "SELECT m FROM Menu m WHERE m.maMenu = :maMenu"),
     @NamedQuery(name = "Menu.findByTenMon", query = "SELECT m FROM Menu m WHERE m.tenMon = :tenMon"),
     @NamedQuery(name = "Menu.findByLoaiMon", query = "SELECT m FROM Menu m WHERE m.loaiMon = :loaiMon"),
-    @NamedQuery(name = "Menu.findByGia", query = "SELECT m FROM Menu m WHERE m.gia = :gia")})
+    @NamedQuery(name = "Menu.findByGia", query = "SELECT m FROM Menu m WHERE m.gia = :gia"),
+    @NamedQuery(name = "Menu.findByImage", query = "SELECT m FROM Menu m WHERE m.image = :image")})
 public class Menu implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -57,6 +58,9 @@ public class Menu implements Serializable {
     @NotNull
     @Column(name = "Gia")
     private long gia;
+    @Size(max = 100)
+    @Column(name = "image")
+    private String image;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "menuMaMenu")
     private Set<Hoadonmonan> hoadonmonanSet;
 
@@ -106,6 +110,14 @@ public class Menu implements Serializable {
         this.gia = gia;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @XmlTransient
     public Set<Hoadonmonan> getHoadonmonanSet() {
         return hoadonmonanSet;
@@ -137,7 +149,7 @@ public class Menu implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tmh.pojo.Menu[ maMenu=" + maMenu + " ]";
+        return "com.hmh.pojo.Menu[ maMenu=" + maMenu + " ]";
     }
     
 }

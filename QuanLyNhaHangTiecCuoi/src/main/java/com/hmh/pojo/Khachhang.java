@@ -195,7 +195,7 @@ public class Khachhang implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tmh.pojo.Khachhang[ maKH=" + maKH + " ]";
+        return "com.hmh.pojo.Khachhang[ maKH=" + maKH + " ]";
     }
     
 }

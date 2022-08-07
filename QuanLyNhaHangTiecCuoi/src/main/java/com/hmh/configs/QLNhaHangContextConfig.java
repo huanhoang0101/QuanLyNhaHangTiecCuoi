@@ -27,8 +27,8 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableTransactionManagement
 @ComponentScan(basePackages = {
     "com.hmh.controllers",
-    "com.dht.repository",
-    "com.dht.service"
+    "com.hmh.repository",
+    "com.hmh.service"
 })
 public class QLNhaHangContextConfig implements WebMvcConfigurer {
 
