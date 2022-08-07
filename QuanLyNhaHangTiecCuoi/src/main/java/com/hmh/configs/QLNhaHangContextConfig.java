@@ -26,7 +26,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan(basePackages = {
-    "com.tmh.controllers",
+    "com.hmh.controllers",
     "com.dht.repository",
     "com.dht.service"
 })
