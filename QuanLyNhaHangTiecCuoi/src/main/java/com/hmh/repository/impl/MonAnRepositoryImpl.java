@@ -47,7 +47,7 @@ public class MonAnRepositoryImpl implements MonAnRepository{
                 List<Predicate> predicates = new ArrayList<>();
                 String kw = params.get("kw");
                 if (kw != null && !kw.isEmpty()) {
-                    Predicate p = b.like(root.get("TenMon").as(String.class), String.format("%%%s%%", kw));
+                    Predicate p = b.like(root.get("tenMon").as(String.class), String.format("%%%s%%", kw));
                     predicates.add(p);
                 }
                 
