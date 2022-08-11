@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -14,10 +14,10 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class DispatcherServletInit extends AbstractAnnotationConfigDispatcherServletInitializer{
 
     @Override
-    protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{
+        protected Class<?>[] getRootConfigClasses() {
+        return new Class[] {
             HibernateConfig.class,
-            TillesConfig.class
+            TilesConfig.class
         };
     }
 
@@ -31,6 +31,5 @@ public class DispatcherServletInit extends AbstractAnnotationConfigDispatcherSer
     @Override
     protected String[] getServletMappings() {
         return new String[] {"/"};
-    }
-    
+    }  
 }

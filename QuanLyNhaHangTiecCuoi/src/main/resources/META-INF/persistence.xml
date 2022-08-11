@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="com.hmh_QuanLyNhaHangTiecCuoi_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.hmh.pojo.Chitietsanh</class>
+    <class>com.hmh.pojo.Khachhang</class>
+    <class>com.hmh.pojo.Sanh</class>
+    <class>com.hmh.pojo.Dichvu</class>
+    <class>com.hmh.pojo.Nhanvien</class>
+    <class>com.hmh.pojo.Hoadon</class>
+    <class>com.hmh.pojo.Hoadonmonan</class>
+    <class>com.hmh.pojo.Hoadondichvu</class>
+    <class>com.hmh.pojo.Menu</class>
+    <class>com.hmh.pojo.Ca</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/qlnhahang?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="12345"/>
+    </properties>
+  </persistence-unit>
+</persistence>

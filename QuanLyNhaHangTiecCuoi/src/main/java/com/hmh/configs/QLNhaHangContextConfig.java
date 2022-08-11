@@ -15,6 +15,8 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 /**
  *
@@ -24,27 +26,36 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan(basePackages = {
-    "com.dht.controllers",
-    "com.dht.repository",
-    "com.dht.service"
+    "com.hmh.controllers",
+    "com.hmh.repository",
+    "com.hmh.service"
 })
-public class QLNhaHangContextConfig implements WebMvcConfigurer{
-    
+public class QLNhaHangContextConfig implements WebMvcConfigurer {
+
     @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer conf){
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer conf) {
         conf.enable();
     }
-    
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
     }
-    
+
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource m = new ResourceBundleMessageSource();
         m.setBasenames("messages");
-        
+
         return m;
     }
+
+//    @Bean
+//    public InternalResourceViewResolver viewResolver() {
+//        InternalResourceViewResolver r = new InternalResourceViewResolver();
+//        r.setPrefix("/WEB-INF/jsp/");
+//        r.setSuffix(".jsp");
+//        r.setViewClass(JstlView.class);
+//        return r;
+//    }
 }
