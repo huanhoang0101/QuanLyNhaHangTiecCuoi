@@ -1,7 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
+
+
 
 <html>
     <head>
@@ -13,14 +17,14 @@
     <body>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">NhaHang</a>
+            <a class="navbar-brand" href="#">Nhà Hàng</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">Trang Chủ</a>
                     </li>
 
                     <c:forEach items="${category}" var="c">
@@ -45,7 +49,7 @@
                 
                 <c:url value="/" var="action"/>
                 <form action="${action}" class="d-flex" role="search">
-                    <input class="form-control me-2" type="texe" name="kw" placeholder="Nhập từ khóa tìm kiếm..." aria-label="Search">
+                    <input class="form-control me-2" type="text" name="kw" placeholder="Nhập từ khóa tìm kiếm..." aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Tìm</button>
                 </form>
                 
@@ -57,14 +61,16 @@
         <div class="row">
 
             <c:forEach items="${menus}" var="m">
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-3 col-xs-12">
                     <div class="card">
                         <img class="card-img-top" class="img-fluid" src="https://res.cloudinary.com/dnrpggpn0/image/upload/v1659920425/Foods/com_tam_w9raak.png?fbclid=IwAR0jHz_RCpjREAENUUR6NKoNb3L14Pevuv4iq3casOjzcgZqxYaolVpx5uM" alt="Card image">
                         <div class="card-body">
                             <h4 class="card-title">${m.tenMon}</h4>
                             <p class="card-text">${m.loaiMon}</p>
-                            <p class="card-text">${m.gia}</p>
-                            <a href="#" class="btn btn-primary">See Profile</a>
+                            <p class="card-text">
+                                <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${m.gia}" /> VND
+                            </p>
+                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
@@ -74,7 +80,7 @@
     </div>
 
     <div class="mt-3 p-4 bg-info text-white rounded">
-        <h1>Nha Hang Tiec Cuoi</h1>
+        <h1>Nhà hàng tiệc cưới</h1>
         <p>&#127801; Lorem ipsum...</p>
     </div>
 </body>

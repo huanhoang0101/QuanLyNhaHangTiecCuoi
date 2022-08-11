@@ -8,6 +8,7 @@ import com.hmh.pojo.Menu;
 import com.hmh.repository.MonAnRepository;
 import com.hmh.service.MonAnService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,12 @@ public class MonAnServiceImpl implements MonAnService{
     private MonAnRepository monAnRepository;
 
     @Override
-    public List<Menu> getMonAn() {
-        return this.monAnRepository.getMonAn();
+    public List<Menu> getMonAn(Map<String, String> params, int page) {
+        return this.monAnRepository.getMonAn(params, page);
     }
     
+    @Override
+    public int countMonAn() {
+        return this.monAnRepository.countMonAn();
+    }
 }

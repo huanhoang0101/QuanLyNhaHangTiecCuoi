@@ -6,11 +6,13 @@ package com.hmh.service;
 
 import com.hmh.pojo.Menu;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author HoanTran
  */
 public interface MonAnService {
-    List<Menu> getMonAn();
+    List<Menu> getMonAn(Map<String, String> params, int page);
+    int countMonAn();
 }
