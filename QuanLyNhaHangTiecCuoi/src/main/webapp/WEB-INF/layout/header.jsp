@@ -9,14 +9,22 @@
 
 <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
+<<<<<<< HEAD
+            <a class="navbar-brand" href="javascript:void(0)">Nhà Hàng</a>
+=======
             <a class="navbar-brand" href="#">Nhà Hàng</a>
+>>>>>>> main
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+<<<<<<< HEAD
+                        <a class="nav-link active" aria-current="page" href="<c:url value="/" />">&#128293; Trang chu</a>
+=======
                         <a class="nav-link active" aria-current="page" href="#">Trang Chủ</a>
+>>>>>>> main
                     </li>
 
                     <c:forEach items="${category}" var="c">
