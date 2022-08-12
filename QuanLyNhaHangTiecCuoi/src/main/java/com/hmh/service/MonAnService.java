@@ -15,4 +15,6 @@ import java.util.Map;
 public interface MonAnService {
     List<Menu> getMonAn(Map<String, String> params, int page);
     int countMonAn();
+    boolean addMonAn(Menu m);
+    boolean deleteMonAn(int id);
 }
