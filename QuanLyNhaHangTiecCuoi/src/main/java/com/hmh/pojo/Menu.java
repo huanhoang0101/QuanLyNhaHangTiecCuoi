@@ -17,6 +17,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -45,8 +47,7 @@ public class Menu implements Serializable {
     @Column(name = "MaMenu")
     private Integer maMenu;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @NotNull(message = "{monAn.name.err}")
     @Column(name = "TenMon")
     private String tenMon;
     @Basic(optional = false)
@@ -57,6 +58,8 @@ public class Menu implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Gia")
+    @Min(value = 10000, message = "{monAn.price.minErr}")
+    @Max(value = 10000000, message = "{monAn.price.maxErr}")
     private long gia;
     @Size(max = 100)
     @Column(name = "image")

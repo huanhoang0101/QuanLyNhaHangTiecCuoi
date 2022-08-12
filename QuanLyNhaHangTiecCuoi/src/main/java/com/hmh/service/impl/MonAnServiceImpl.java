@@ -30,4 +30,16 @@ public class MonAnServiceImpl implements MonAnService{
     public int countMonAn() {
         return this.monAnRepository.countMonAn();
     }
+
+    @Override
+    public boolean addMonAn(Menu m) {
+        m.setImage("https://res.cloudinary.com/dnrpggpn0/image/upload/v1659920425/Foods/com_tam_w9raak.png");
+    
+        return this.monAnRepository.addMonAn(m);
+    }
+
+    @Override
+    public boolean deleteMonAn(int id) {
+        return this.monAnRepository.deleteMonAn(id);
+    }
 }
