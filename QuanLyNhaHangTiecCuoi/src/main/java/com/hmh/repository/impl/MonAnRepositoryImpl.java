@@ -100,4 +100,11 @@ public class MonAnRepositoryImpl implements MonAnRepository{
         }
     }
 
+    @Override
+    public Menu getMenuById(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        
+        return session.get(Menu.class, id);
+    }
+
 }

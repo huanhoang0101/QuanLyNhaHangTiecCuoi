@@ -42,6 +42,7 @@ public class MonAnServiceImpl implements MonAnService{
             Map result = this.cloudinary.uploader().upload(m.getFile().getBytes(),
                         ObjectUtils.asMap("resource_type", "auto"));
             String img = (String) result.get("secure_url");
+            
             m.setImage(img);
             
         } catch (IOException ex) {
@@ -55,5 +56,10 @@ public class MonAnServiceImpl implements MonAnService{
     @Override
     public boolean deleteMonAn(int id) {
         return this.monAnRepository.deleteMonAn(id);
+    }
+
+    @Override
+    public Menu getMenuById(int id) {
+        return this.monAnRepository.getMenuById(id);
     }
 }

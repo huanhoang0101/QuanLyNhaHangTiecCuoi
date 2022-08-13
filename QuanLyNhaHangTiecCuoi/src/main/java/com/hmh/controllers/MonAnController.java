@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -51,4 +52,12 @@ public class MonAnController {
         
         return "menu";
     }
+    
+    @GetMapping("/monan/{maMenu}")
+    public String detail(Model model, @PathVariable(value = "maMenu") int maMenu) {       
+        model.addAttribute("menu", this.monAnService.getMenuById(maMenu));
+        
+        return "monan-detail";
+    }
+    
 }

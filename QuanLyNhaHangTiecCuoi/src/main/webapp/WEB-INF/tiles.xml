@@ -17,4 +17,8 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="title" value="QUẢN LÝ MÓN ĂN" />
         <put-attribute name="content" value="/WEB-INF/jsp/monan.jsp" />
     </definition>
+    <definition name="monan-detail" extends="baseLayout">
+        <put-attribute name="title" value="CHI TIẾT MÓN ĂN" />
+        <put-attribute name="content" value="/WEB-INF/jsp/monan-detail.jsp" />
+    </definition>
 </tiles-definitions>
