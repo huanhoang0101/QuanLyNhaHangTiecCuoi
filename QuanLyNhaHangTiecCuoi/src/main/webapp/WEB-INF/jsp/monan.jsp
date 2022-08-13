@@ -13,7 +13,7 @@
 <c:url value="/admin/menu" var="action" />
 
 <form:form method="post" action="${action}" 
-           modelAttribute="menu">
+           modelAttribute="menu" enctype="multipart/form-data">
     <form:errors path="*" element="div" cssClass="alert alert-danger" />
 
     <div class="form-floating mb-3 mt-3">
@@ -36,7 +36,12 @@
             <option value= "Tráng miệng">Món tráng miệng</option>
         </form:select>
     </div>
-
+    
+    <div class="form-group">
+        <label for="file">Ảnh món ăn</lable>
+        <form:input type="file" id="file" path="file" class="form-control" />
+    </div>
+        
     <div class="form-floating">
         <br>
         <input type="submit" value="Thêm món ăn" class="btn btn-danger" />
