@@ -5,8 +5,12 @@
  */
 package com.hmh.controllers;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.hmh.pojo.Menu;
 import com.hmh.service.MonAnService;
+import java.io.IOException;
+import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class MonAnController {
     @Autowired
-    private MonAnService monAnService;
+    private MonAnService monAnService;   
     
     @GetMapping("/menu")
     public String list(Model model) {
@@ -37,6 +41,7 @@ public class MonAnController {
     @PostMapping("/menu")
     public String add(@ModelAttribute(value = "menu") @Valid Menu m,
             BindingResult r) {
+               
         if (r.hasErrors()) {
             return "menu";
         }

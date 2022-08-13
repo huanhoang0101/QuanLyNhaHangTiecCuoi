@@ -4,9 +4,12 @@
  */
 package com.hmh.service.impl;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.hmh.pojo.Menu;
 import com.hmh.repository.MonAnRepository;
 import com.hmh.service.MonAnService;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,8 @@ import org.springframework.stereotype.Service;
 public class MonAnServiceImpl implements MonAnService{
     @Autowired
     private MonAnRepository monAnRepository;
+    @Autowired
+    private Cloudinary cloudinary;
 
     @Override
     public List<Menu> getMonAn(Map<String, String> params, int page) {
@@ -33,7 +38,16 @@ public class MonAnServiceImpl implements MonAnService{
 
     @Override
     public boolean addMonAn(Menu m) {
-        m.setImage("https://res.cloudinary.com/dnrpggpn0/image/upload/v1659920425/Foods/com_tam_w9raak.png");
+        try {
+            Map result = this.cloudinary.uploader().upload(m.getFile().getBytes(),
+                        ObjectUtils.asMap("resource_type", "auto"));
+            String img = (String) result.get("secure_url");
+            m.setImage(img);
+            
+        } catch (IOException ex) {
+            System.err.println(ex.getMessage());
+            return false;
+        }
     
         return this.monAnRepository.addMonAn(m);
     }

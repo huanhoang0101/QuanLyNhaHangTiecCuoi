@@ -18,12 +18,14 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -68,6 +70,8 @@ public class Menu implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "menuMaMenu")
     @JsonIgnore
     private Set<Hoadonmonan> hoadonmonanSet;
+    @Transient
+    private MultipartFile file; 
 
     public Menu() {
     }
@@ -155,6 +159,20 @@ public class Menu implements Serializable {
     @Override
     public String toString() {
         return "com.hmh.pojo.Menu[ maMenu=" + maMenu + " ]";
+    }
+
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
     
 }
