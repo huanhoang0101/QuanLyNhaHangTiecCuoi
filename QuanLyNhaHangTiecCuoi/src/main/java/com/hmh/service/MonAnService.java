@@ -17,4 +17,5 @@ public interface MonAnService {
     int countMonAn();
     boolean addMonAn(Menu m);
     boolean deleteMonAn(int id);
+    Menu getMenuById(int id);
 }

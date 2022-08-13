@@ -50,7 +50,8 @@ public class Menu implements Serializable {
     @Column(name = "MaMenu")
     private Integer maMenu;
     @Basic(optional = false)
-    @NotNull(message = "{monAn.name.err}")
+    @NotNull(message = "{monan.name.err}")
+    @Size(min = 1, max = 50, message = "{monan.name.err}")
     @Column(name = "TenMon")
     private String tenMon;
     @Basic(optional = false)
@@ -61,8 +62,8 @@ public class Menu implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Gia")
-    @Min(value = 10000, message = "{monAn.price.minErr}")
-    @Max(value = 10000000, message = "{monAn.price.maxErr}")
+    @Min(value = 10000, message = "{monan.price.minErr}")
+    @Max(value = 10000000, message = "{monan.price.maxErr}")
     private long gia;
     @Size(max = 100)
     @Column(name = "image")
