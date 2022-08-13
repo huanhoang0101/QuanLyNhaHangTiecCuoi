@@ -4,6 +4,7 @@
  */
 package com.hmh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -65,6 +66,7 @@ public class Menu implements Serializable {
     @Column(name = "image")
     private String image;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "menuMaMenu")
+    @JsonIgnore
     private Set<Hoadonmonan> hoadonmonanSet;
 
     public Menu() {
