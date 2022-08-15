@@ -4,17 +4,17 @@
  */
 package com.hmh.repository.impl;
 
-import com.hmh.pojo.Menu;
-import com.hmh.repository.MonAnRepository;
+import com.hmh.pojo.Sanh;
+import com.hmh.repository.SanhRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -29,25 +29,25 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 @PropertySource("classpath:databases.properties")
-public class MonAnRepositoryImpl implements MonAnRepository{
+public class SanhRepositoryImpl implements SanhRepository{
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
     @Autowired
     private Environment env;
 
     @Override
-    public List<Menu> getMonAn(Map<String, String> params, int page) {
+    public List<Sanh> getSanh(Map<String, String> params, int page) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder b = session.getCriteriaBuilder();
-        CriteriaQuery<Menu> q = b.createQuery(Menu.class);
-            Root root = q.from(Menu.class);
+        CriteriaQuery<Sanh> q = b.createQuery(Sanh.class);
+            Root root = q.from(Sanh.class);
             q.select(root);
             
             if (params != null) {
                 List<Predicate> predicates = new ArrayList<>();
                 String kw = params.get("kw");
                 if (kw != null && !kw.isEmpty()) {
-                    Predicate p = b.like(root.get("tenMon").as(String.class), String.format("%%%s%%", kw));
+                    Predicate p = b.like(root.get("ten").as(String.class), String.format("%%%s%%", kw));
                     predicates.add(p);
                 }
                 
@@ -64,21 +64,19 @@ public class MonAnRepositoryImpl implements MonAnRepository{
             
             return query.getResultList();
     }
-    
+
     @Override
-    public int countMonAn() {
+    public int countSanh() {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        Query q = session.createQuery("SELECT COUNT(*) FROM Menu");
-        
+        Query q = session.createQuery("SELECT COUNT(*) FROM Sanh");
         return Integer.parseInt(q.getSingleResult().toString());
-    }
+}
 
     @Override
-    public boolean addMonAn(Menu m) {
+    public boolean addSanh(Sanh s) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        
         try {
-            session.save(m);
+            session.save(s);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -87,11 +85,11 @@ public class MonAnRepositoryImpl implements MonAnRepository{
     }
 
     @Override
-    public boolean deleteMonAn(int id) {
-        Session session = this.sessionFactory.getObject().getCurrentSession();    
+    public boolean deleteSanh(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
-            Menu m = session.get(Menu.class, id);
-            session.delete(m);
+            Sanh s = session.get(Sanh.class, id);
+            session.delete(s);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -100,10 +98,8 @@ public class MonAnRepositoryImpl implements MonAnRepository{
     }
 
     @Override
-    public Menu getMenuById(int id) {
+    public Sanh getSanhById(int id) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        
-        return session.get(Menu.class, id);
-    }
-    
+        return session.get(Sanh.class, id);
+    }   
 }

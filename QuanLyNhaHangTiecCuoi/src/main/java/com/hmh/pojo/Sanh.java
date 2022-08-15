@@ -4,6 +4,7 @@
  */
 package com.hmh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -17,10 +18,12 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -37,12 +40,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Sanh.findByImage", query = "SELECT s FROM Sanh s WHERE s.image = :image")})
 public class Sanh implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "MaSanh")
-    private Integer maSanh;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -51,11 +48,21 @@ public class Sanh implements Serializable {
     @Size(max = 45)
     @Column(name = "SoBan")
     private String soBan;
-    @Size(max = 100)
+    @Size(max = 1000)
     @Column(name = "image")
     private String image;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "MaSanh")
+    private Integer maSanh;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sanhMaSanh")
+    @JsonIgnore
     private Set<Chitietsanh> chitietsanhSet;
+    @Transient
+    private MultipartFile file; 
 
     public Sanh() {
     }
@@ -77,29 +84,6 @@ public class Sanh implements Serializable {
         this.maSanh = maSanh;
     }
 
-    public String getTen() {
-        return ten;
-    }
-
-    public void setTen(String ten) {
-        this.ten = ten;
-    }
-
-    public String getSoBan() {
-        return soBan;
-    }
-
-    public void setSoBan(String soBan) {
-        this.soBan = soBan;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     @XmlTransient
     public Set<Chitietsanh> getChitietsanhSet() {
@@ -134,5 +118,41 @@ public class Sanh implements Serializable {
     public String toString() {
         return "com.hmh.pojo.Sanh[ maSanh=" + maSanh + " ]";
     }
-    
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
+    public String getTen() {
+        return ten;
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+
+    public String getSoBan() {
+        return soBan;
+    }
+
+    public void setSoBan(String soBan) {
+        this.soBan = soBan;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

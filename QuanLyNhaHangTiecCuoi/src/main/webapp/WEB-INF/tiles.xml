@@ -9,6 +9,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="content" value="" />
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
     </definition>
+    
     <definition name="index" extends="baseLayout">
         <put-attribute name="title" value="Trang chủ" />
         <put-attribute name="content" value="/WEB-INF/jsp/index.jsp" />
@@ -20,5 +21,31 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="monan-detail" extends="baseLayout">
         <put-attribute name="title" value="CHI TIẾT MÓN ĂN" />
         <put-attribute name="content" value="/WEB-INF/jsp/monan-detail.jsp" />
+    </definition>
+    
+    <definition name="sanhIndex" extends="baseLayout">
+        <put-attribute name="title" value="Trang chủ sảnh" />
+        <put-attribute name="content" value="/WEB-INF/jsp/sanhIndex.jsp" />
+    </definition>
+    <definition name="sanh" extends="baseLayout">
+        <put-attribute name="title" value="QUẢN LÝ SẢNH" />
+        <put-attribute name="content" value="/WEB-INF/jsp/sanh.jsp" />
+    </definition>
+    <definition name="sanh-detail" extends="baseLayout">
+        <put-attribute name="title" value="CHI TIẾT SẢNH" />
+        <put-attribute name="content" value="/WEB-INF/jsp/sanh-detail.jsp" />
+    </definition>
+    
+    <definition name="dichvuIndex" extends="baseLayout">
+        <put-attribute name="title" value="Trang chủ dịch vụ" />
+        <put-attribute name="content" value="/WEB-INF/jsp/dichvuIndex.jsp" />
+    </definition>
+    <definition name="dichvu" extends="baseLayout">
+        <put-attribute name="title" value="QUẢN LÝ DỊCH VỤ" />
+        <put-attribute name="content" value="/WEB-INF/jsp/dichvu.jsp" />
+    </definition>
+    <definition name="dichvu-detail" extends="baseLayout">
+        <put-attribute name="title" value="CHI TIẾT DỊCH VỤ" />
+        <put-attribute name="content" value="/WEB-INF/jsp/dichvu-detail.jsp" />
     </definition>
 </tiles-definitions>

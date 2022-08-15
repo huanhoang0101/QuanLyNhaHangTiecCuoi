@@ -18,11 +18,13 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<c:url value="/" />">&#128293; Trang chủ</a>
                 </li>
-                <c:forEach items="${categories}" var="c">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">${c}</a>
-                    </li>
-                </c:forEach>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<c:url value="/sanhIndex" />">&#128293; Sảnh</a>
+                </li><!-- comment -->
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<c:url value="/dichvuIndex" />">&#128293; Dich Vụ</a>
+                </li><!-- comment -->
+
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

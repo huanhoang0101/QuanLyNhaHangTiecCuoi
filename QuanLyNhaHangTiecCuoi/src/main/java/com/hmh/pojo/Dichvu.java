@@ -4,6 +4,7 @@
  */
 package com.hmh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Set;
@@ -16,10 +17,12 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -35,14 +38,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Dichvu.findByGia", query = "SELECT d FROM Dichvu d WHERE d.gia = :gia")})
 public class Dichvu implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "MaDV")
-    private Integer maDV;
-    @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{monan.name.err}")
     @Size(min = 1, max = 45)
     @Column(name = "TenDV")
     private String tenDV;
@@ -50,8 +47,21 @@ public class Dichvu implements Serializable {
     @NotNull
     @Column(name = "Gia")
     private BigInteger gia;
+    @Size(max = 1000)
+    @Column(name = "image")
+    private String image;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "MaDV")
+    private Integer maDV;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "dichvuMaDV")
+    @JsonIgnore
     private Set<Hoadondichvu> hoadondichvuSet;
+    @Transient
+    private MultipartFile file; 
 
     public Dichvu() {
     }
@@ -73,23 +83,6 @@ public class Dichvu implements Serializable {
     public void setMaDV(Integer maDV) {
         this.maDV = maDV;
     }
-
-    public String getTenDV() {
-        return tenDV;
-    }
-
-    public void setTenDV(String tenDV) {
-        this.tenDV = tenDV;
-    }
-
-    public BigInteger getGia() {
-        return gia;
-    }
-
-    public void setGia(BigInteger gia) {
-        this.gia = gia;
-    }
-
     @XmlTransient
     public Set<Hoadondichvu> getHoadondichvuSet() {
         return hoadondichvuSet;
@@ -122,6 +115,43 @@ public class Dichvu implements Serializable {
     @Override
     public String toString() {
         return "com.hmh.pojo.Dichvu[ maDV=" + maDV + " ]";
+    }
+
+    public String getTenDV() {
+        return tenDV;
+    }
+
+    public void setTenDV(String tenDV) {
+        this.tenDV = tenDV;
+    }
+
+    public BigInteger getGia() {
+        return gia;
+    }
+
+    public void setGia(BigInteger gia) {
+        this.gia = gia;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
     
 }
