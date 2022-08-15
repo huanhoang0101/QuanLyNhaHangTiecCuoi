@@ -4,7 +4,9 @@
  */
 package com.hmh.controllers;
 
+import com.hmh.service.DichVuService;
 import com.hmh.service.MonAnService;
+import com.hmh.service.SanhService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +34,11 @@ public class IndexControllers {
     private MonAnService monAnService;
     @Autowired
     private LocalSessionFactoryBean SessionFactory;
+    @Autowired
+    private DichVuService dichVuService;
+    @Autowired
+    private SanhService sanhService;
+    
     
     @ModelAttribute
     public void commonAttr(Model model) {
@@ -52,5 +59,24 @@ public class IndexControllers {
         
         return "index";
         
+    }
+    
+    @RequestMapping("/dichvuIndex")
+    @Transactional
+    public String dichvuIndex(Model model, @RequestParam Map<String, String> params) {    
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        model.addAttribute("dichvus", this.dichVuService.getDichVu(params, page));
+        model.addAttribute("DichVuCounter", this.dichVuService.countDichVu());
+        
+        return "dichvuIndex";  
+    }
+    
+    @RequestMapping("/sanhIndex")
+    @Transactional
+    public String sanhIndex(Model model, @RequestParam Map<String, String> params) {    
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        model.addAttribute("sanhs", this.sanhService.getSanh(params, page));
+        model.addAttribute("SanhCounter", this.sanhService.countSanh());
+        return "sanhIndex";  
     }
 }
