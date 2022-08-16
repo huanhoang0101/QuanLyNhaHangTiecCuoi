@@ -13,7 +13,6 @@
     </div>
     <div class="col-md-6">
         <h1>${sanh.ten}</h1>
-        <h3 class="text-danger">${sanh.gia} VND</h3>
         <p>${sanh.soBan}</p>
         <div>
             <input type="button" value="Đặt bàn" class="btn btn-danger"/>
