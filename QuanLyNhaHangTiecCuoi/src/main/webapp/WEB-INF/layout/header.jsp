@@ -28,13 +28,25 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        Menu
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <c:url value="/" var="cUrl">
+                            <c:param name="lm" value="" />
+                        </c:url>
+                        <li><a class="dropdown-item" href="${cUrl}">Tất cả món ăn</a></li>
+                        <c:url value="/" var="cUrl">
+                            <c:param name="lm" value="Khai vị" />
+                        </c:url>
+                        <li><a class="dropdown-item" href="${cUrl}">Khai vị</a></li>
+                            <c:url value="/" var="cUrl">
+                                <c:param name="lm" value="Món chính" />
+                            </c:url>
+                        <li><a class="dropdown-item" href="${cUrl}">Món chính</a></li>
+                            <c:url value="/" var="cUrl">
+                                <c:param name="lm" value="Tráng miệng" />
+                            </c:url>
+                        <li><a class="dropdown-item" href="${cUrl}">Tráng miệng</a></li>
                     </ul>
                 </li>
             </ul>

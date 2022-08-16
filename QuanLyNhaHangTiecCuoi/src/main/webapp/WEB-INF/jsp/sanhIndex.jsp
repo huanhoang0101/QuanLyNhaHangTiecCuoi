@@ -24,9 +24,9 @@
             <div class="card">  
                 <img class="card-img-top" class="img-fluid" src="${s.image}" alt="Card image">
                 <div class="card-body">
-                    <h4 class="card-title">${s.tenDV}</h4>
+                    <h4 class="card-title">${s.ten}</h4>
                     <p class="card-text">
-                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${s.gia}" /> VND
+                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "1" /> VND
                     </p>
                     <a href="<c:url value="/admin/sanh/${s.maSanh}"/>" class="btn btn-primary">Xem chi tiết</a>
                 </div>

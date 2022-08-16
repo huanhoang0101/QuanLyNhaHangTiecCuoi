@@ -51,6 +51,12 @@ public class MonAnRepositoryImpl implements MonAnRepository{
                     predicates.add(p);
                 }
                 
+                String lm = params.get("lm");
+                if (lm != null && !lm.isEmpty()) {
+                    Predicate p = b.like(root.get("loaiMon").as(String.class), String.format("%%%s%%", lm));
+                    predicates.add(p);
+                }
+                
                 q.where(predicates.toArray(Predicate[]::new));
             }
             org.hibernate.query.Query query = session.createQuery(q);
