@@ -6,6 +6,7 @@ package com.hmh.controllers;
 
 import com.hmh.service.DichVuService;
 import com.hmh.service.MonAnService;
+import com.hmh.service.NhanVienService;
 import com.hmh.service.SanhService;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,8 @@ public class IndexControllers {
     private DichVuService dichVuService;
     @Autowired
     private SanhService sanhService;
+    @Autowired
+    private NhanVienService NhanVienService;
     
     
     @ModelAttribute
