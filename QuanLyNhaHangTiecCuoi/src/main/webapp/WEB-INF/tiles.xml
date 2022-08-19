@@ -48,4 +48,9 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="title" value="CHI TIẾT DỊCH VỤ" />
         <put-attribute name="content" value="/WEB-INF/jsp/dichvu-detail.jsp" />
     </definition>
+    
+    <definition name="nhanvien" extends="baseLayout">
+        <put-attribute name="title" value="QUẢN LÝ NHÂN VIÊN" />
+        <put-attribute name="content" value="/WEB-INF/jsp/nhanvien.jsp" />
+    </definition>
 </tiles-definitions>
