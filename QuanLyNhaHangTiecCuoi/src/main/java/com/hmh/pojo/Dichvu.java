@@ -39,7 +39,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class Dichvu implements Serializable {
 
     @Basic(optional = false)
-    @NotNull(message = "{monan.name.err}")
+    @NotNull()
     @Size(min = 1, max = 45)
     @Column(name = "TenDV")
     private String tenDV;
@@ -50,6 +50,8 @@ public class Dichvu implements Serializable {
     @Size(max = 1000)
     @Column(name = "image")
     private String image;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "dichvuId")
+    private Set<CommentDichvu> commentDichvuSet;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -117,6 +119,20 @@ public class Dichvu implements Serializable {
         return "com.hmh.pojo.Dichvu[ maDV=" + maDV + " ]";
     }
 
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
     public String getTenDV() {
         return tenDV;
     }
@@ -140,18 +156,14 @@ public class Dichvu implements Serializable {
     public void setImage(String image) {
         this.image = image;
     }
-    /**
-     * @return the file
-     */
-    public MultipartFile getFile() {
-        return file;
+
+    @XmlTransient
+    public Set<CommentDichvu> getCommentDichvuSet() {
+        return commentDichvuSet;
     }
 
-    /**
-     * @param file the file to set
-     */
-    public void setFile(MultipartFile file) {
-        this.file = file;
+    public void setCommentDichvuSet(Set<CommentDichvu> commentDichvuSet) {
+        this.commentDichvuSet = commentDichvuSet;
     }
     
 }

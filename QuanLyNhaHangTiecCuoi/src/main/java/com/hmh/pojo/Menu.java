@@ -43,15 +43,9 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Menu.findByImage", query = "SELECT m FROM Menu m WHERE m.image = :image")})
 public class Menu implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "MaMenu")
-    private Integer maMenu;
-    @Basic(optional = false)
-    @NotNull(message = "{monan.name.err}")
-    @Size(min = 1, max = 50, message = "{monan.name.err}")
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "TenMon")
     private String tenMon;
     @Basic(optional = false)
@@ -62,12 +56,19 @@ public class Menu implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Gia")
-    @Min(value = 10000, message = "{monan.price.minErr}")
-    @Max(value = 10000000, message = "{monan.price.maxErr}")
     private long gia;
-    @Size(max = 100)
+    @Size(max = 1000)
     @Column(name = "image")
     private String image;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "monanId")
+    private Set<CommentMonan> commentMonanSet;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "MaMenu")
+    private Integer maMenu;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "menuMaMenu")
     @JsonIgnore
     private Set<Hoadonmonan> hoadonmonanSet;
@@ -96,37 +97,6 @@ public class Menu implements Serializable {
         this.maMenu = maMenu;
     }
 
-    public String getTenMon() {
-        return tenMon;
-    }
-
-    public void setTenMon(String tenMon) {
-        this.tenMon = tenMon;
-    }
-
-    public String getLoaiMon() {
-        return loaiMon;
-    }
-
-    public void setLoaiMon(String loaiMon) {
-        this.loaiMon = loaiMon;
-    }
-
-    public long getGia() {
-        return gia;
-    }
-
-    public void setGia(long gia) {
-        this.gia = gia;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     @XmlTransient
     public Set<Hoadonmonan> getHoadonmonanSet() {
@@ -174,6 +144,47 @@ public class Menu implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    public String getTenMon() {
+        return tenMon;
+    }
+
+    public void setTenMon(String tenMon) {
+        this.tenMon = tenMon;
+    }
+
+    public String getLoaiMon() {
+        return loaiMon;
+    }
+
+    public void setLoaiMon(String loaiMon) {
+        this.loaiMon = loaiMon;
+    }
+
+    public long getGia() {
+        return gia;
+    }
+
+    public void setGia(long gia) {
+        this.gia = gia;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @XmlTransient
+    public Set<CommentMonan> getCommentMonanSet() {
+        return commentMonanSet;
+    }
+
+    public void setCommentMonanSet(Set<CommentMonan> commentMonanSet) {
+        this.commentMonanSet = commentMonanSet;
     }
     
 }

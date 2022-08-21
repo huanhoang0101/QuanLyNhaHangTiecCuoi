@@ -12,6 +12,9 @@
     <class>com.hmh.pojo.Hoadondichvu</class>
     <class>com.hmh.pojo.Menu</class>
     <class>com.hmh.pojo.Ca</class>
+    <class>com.hmh.pojo.CommentDichvu</class>
+    <class>com.hmh.pojo.CommentSanh</class>
+    <class>com.hmh.pojo.CommentMonan</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/qlnhahang?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
