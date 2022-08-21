@@ -41,19 +41,13 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Khachhang.findByAvatar", query = "SELECT k FROM Khachhang k WHERE k.avatar = :avatar")})
 public class Khachhang implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "MaKH")
-    private Integer maKH;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "TenKH")
     private String tenKH;
     @Basic(optional = false)
-    @NotNull
+    @NotNull()
     @Size(min = 1, max = 45)
     @Column(name = "GioiTInh")
     private String gioiTInh;
@@ -72,14 +66,27 @@ public class Khachhang implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "TaiKhoan")
     private String taiKhoan;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "MatKhau")
     private String matKhau;
-    @Size(max = 100)
+    @Size(max = 1000)
     @Column(name = "Avatar")
     private String avatar;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    private Set<CommentMonan> commentMonanSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    private Set<CommentSanh> commentSanhSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    private Set<CommentDichvu> commentDichvuSet;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "MaKH")
+    private Integer maKH;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "khachhangMaKH")
     private Set<Hoadon> hoadonSet;
 
@@ -106,6 +113,41 @@ public class Khachhang implements Serializable {
 
     public void setMaKH(Integer maKH) {
         this.maKH = maKH;
+    }
+
+
+    @XmlTransient
+    public Set<Hoadon> getHoadonSet() {
+        return hoadonSet;
+    }
+
+    public void setHoadonSet(Set<Hoadon> hoadonSet) {
+        this.hoadonSet = hoadonSet;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (maKH != null ? maKH.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Khachhang)) {
+            return false;
+        }
+        Khachhang other = (Khachhang) object;
+        if ((this.maKH == null && other.maKH != null) || (this.maKH != null && !this.maKH.equals(other.maKH))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "com.hmh.pojo.Khachhang[ maKH=" + maKH + " ]";
     }
 
     public String getTenKH() {
@@ -165,37 +207,30 @@ public class Khachhang implements Serializable {
     }
 
     @XmlTransient
-    public Set<Hoadon> getHoadonSet() {
-        return hoadonSet;
+    public Set<CommentMonan> getCommentMonanSet() {
+        return commentMonanSet;
     }
 
-    public void setHoadonSet(Set<Hoadon> hoadonSet) {
-        this.hoadonSet = hoadonSet;
+    public void setCommentMonanSet(Set<CommentMonan> commentMonanSet) {
+        this.commentMonanSet = commentMonanSet;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (maKH != null ? maKH.hashCode() : 0);
-        return hash;
+    @XmlTransient
+    public Set<CommentSanh> getCommentSanhSet() {
+        return commentSanhSet;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Khachhang)) {
-            return false;
-        }
-        Khachhang other = (Khachhang) object;
-        if ((this.maKH == null && other.maKH != null) || (this.maKH != null && !this.maKH.equals(other.maKH))) {
-            return false;
-        }
-        return true;
+    public void setCommentSanhSet(Set<CommentSanh> commentSanhSet) {
+        this.commentSanhSet = commentSanhSet;
     }
 
-    @Override
-    public String toString() {
-        return "com.hmh.pojo.Khachhang[ maKH=" + maKH + " ]";
+    @XmlTransient
+    public Set<CommentDichvu> getCommentDichvuSet() {
+        return commentDichvuSet;
+    }
+
+    public void setCommentDichvuSet(Set<CommentDichvu> commentDichvuSet) {
+        this.commentDichvuSet = commentDichvuSet;
     }
     
 }

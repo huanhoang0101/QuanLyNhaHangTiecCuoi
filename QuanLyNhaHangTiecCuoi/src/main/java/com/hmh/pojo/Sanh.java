@@ -51,6 +51,8 @@ public class Sanh implements Serializable {
     @Size(max = 1000)
     @Column(name = "image")
     private String image;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sanhId")
+    private Set<CommentSanh> commentSanhSet;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -154,5 +156,14 @@ public class Sanh implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @XmlTransient
+    public Set<CommentSanh> getCommentSanhSet() {
+        return commentSanhSet;
+    }
+
+    public void setCommentSanhSet(Set<CommentSanh> commentSanhSet) {
+        this.commentSanhSet = commentSanhSet;
     }
 }
