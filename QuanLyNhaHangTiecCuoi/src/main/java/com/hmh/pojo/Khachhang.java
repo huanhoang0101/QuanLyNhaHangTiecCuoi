@@ -4,6 +4,7 @@
  */
 package com.hmh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -71,15 +72,19 @@ public class Khachhang implements Serializable {
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "MatKhau")
+    @JsonIgnore
     private String matKhau;
     @Size(max = 1000)
     @Column(name = "Avatar")
     private String avatar;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    @JsonIgnore
     private Set<CommentMonan> commentMonanSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    @JsonIgnore
     private Set<CommentSanh> commentSanhSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    @JsonIgnore
     private Set<CommentDichvu> commentDichvuSet;
     private static final long serialVersionUID = 1L;
     @Id
@@ -88,6 +93,7 @@ public class Khachhang implements Serializable {
     @Column(name = "MaKH")
     private Integer maKH;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "khachhangMaKH")
+    @JsonIgnore
     private Set<Hoadon> hoadonSet;
 
     public Khachhang() {
