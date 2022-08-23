@@ -4,6 +4,8 @@
  */
 package com.hmh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -52,12 +54,14 @@ public class CommentSanh implements Serializable {
     @NotNull
     @Column(name = "created_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
+    private Date createdDate = new Date();
     @JoinColumn(name = "user_id", referencedColumnName = "MaKH")
     @ManyToOne(optional = false)
+    @JsonProperty("user")
     private Khachhang userId;
     @JoinColumn(name = "sanh_id", referencedColumnName = "MaSanh")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private Sanh sanhId;
 
     public CommentSanh() {

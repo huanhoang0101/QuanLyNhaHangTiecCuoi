@@ -22,7 +22,7 @@
                     <a class="nav-link active" aria-current="page" href="<c:url value="/sanhIndex" />">&#128293; Sảnh</a>
                 </li><!-- comment -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<c:url value="/dichvuIndex" />">&#128293; Dich Vụ</a>
+                    <a class="nav-link active" aria-current="page" href="<c:url value="/dichvuIndex" />">&#128293; Dịch Vụ</a>
                 </li><!-- comment -->
 
 

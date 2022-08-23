@@ -4,17 +4,19 @@
  * and open the template in the editor.
  */
 
+/* global fetch */
+
 function delMonAn(endpoint, id) {
     let d = document.getElementById("load" + id);
-    d.style.display = "block"
+    d.style.display = "block";
     fetch(endpoint, {
         method: "delete"
     }).then(function(res) {
         if (res.status === 204)
             location.reload();
     }).catch(function(err) {
-        console.error(err)
-    })
+        console.error(err);
+    });
 }
 
 function loadAdminMonAn(endpoint) {
@@ -33,7 +35,7 @@ function loadAdminMonAn(endpoint) {
                     <button class='btn btn-danger' onclick="delMonAn('${endpoint+ "/" + data[i].maMenu}', ${data[i].maMenu})">Xóa</button>
                 </td>
             </tr>
-            `
+            `;
         }
         
         let d = document.getElementById("adminMonAn");
@@ -41,5 +43,5 @@ function loadAdminMonAn(endpoint) {
         
         let d2 = document.getElementById("myLoading");
         d2.style.display = "none";
-    })
+    });
 }

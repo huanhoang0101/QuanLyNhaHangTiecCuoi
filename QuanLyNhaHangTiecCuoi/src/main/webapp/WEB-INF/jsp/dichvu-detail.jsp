@@ -4,6 +4,7 @@
     Author     : HoanTran
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <h1 class="text-center text-danger">CHI TIẾT DỊCH VỤ</h1>
@@ -20,29 +21,25 @@
     </div>
 </div>
 
+<c:url value="/api/dichvu/${dichvu.maDV}/comments" var="endpoint" />
 <form>
     <div class="form-group" style="padding: 10px">
-        <textarea class="form-control" placeholder="Nhập đánh giá của bạn..."></textarea>
-        <br>
-        <input type="submit" value="Gửi bình luận" class="btn btn-danger"/>
-    </div>
+        <textarea class="form-control" placeholder="Nhập đánh giá của bạn..." id="contentId"></textarea>
+    </div> 
+    <button class="btn btn-danger" onclick="addCommentDichvu('${endpoint}', ${dichvu.maDV})">Thêm bình luận</button>
 </form>
 
-<div class="row">
-    <div class="col-md-1" style="padding: 10px">
-        <img class="rounded-circle img-fluid" src="${dichvu.image}" />
-    </div>
-    <div class="col-md-10">
-        <p>Tuyệt vời!!!</p>
-        <i>31/12/2022 10:48</i>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-1" style="padding: 10px">
-        <img class="rounded-circle img-fluid" src="${dichvu.image}" />
-    </div>
-    <div class="col-md-11">
-        <p>Tuyệt vời!!!</p>
-        <i>31/12/2022 10:48</i>
-    </div>
-</div>
+<ul id="comments" class="list-group">
+
+</ul> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
+<script src="<c:url value="/js/comment_dichvu.js" />"></script>
+<script>
+        window.onload = function () {
+            loadCommentsDichvu('${endpoint}');
+        }
+</script>
+
+
