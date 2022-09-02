@@ -20,15 +20,15 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<c:url value="/sanhIndex" />">&#128293; Sảnh</a>
-                </li><!-- comment -->
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<c:url value="/dichvuIndex" />">&#128293; Dịch Vụ</a>
-                </li><!-- comment -->
+                </li>
 
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Menu
+                        &#128293; Menu
                     </a>
                     <ul class="dropdown-menu">
                         <c:url value="/" var="cUrl">
@@ -48,6 +48,9 @@
                             </c:url>
                         <li><a class="dropdown-item" href="${cUrl}">Tráng miệng</a></li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<c:url value="/dat-sanh" />">&#128293; Đặt tiệc</a>
                 </li>
             </ul>
 

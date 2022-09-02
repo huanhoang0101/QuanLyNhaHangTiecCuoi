@@ -81,5 +81,5 @@ public class IndexControllers {
         model.addAttribute("sanhs", this.sanhService.getSanh(params, page));
         model.addAttribute("SanhCounter", this.sanhService.countSanh());
         return "sanhIndex";  
-    }
+    } 
 }
