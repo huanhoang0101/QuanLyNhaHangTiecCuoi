@@ -30,6 +30,7 @@
                         <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "1" /> VND
                     </p>
                     <a href="<c:url value="/admin/sanh/${s.maSanh}"/>" class="btn btn-primary">Xem chi tiết</a>
+                    <a href="<c:url value="/dat-menu"/>" class="btn btn-primary" onclick="addToDatSanh(${s.maSanh}, '${s.ten}', 1, '${s.soBan}')">Đặt sảnh</a>
                 </div>
             </div>
         </div>

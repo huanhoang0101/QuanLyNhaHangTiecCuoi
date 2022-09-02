@@ -53,4 +53,20 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="title" value="QUẢN LÝ NHÂN VIÊN" />
         <put-attribute name="content" value="/WEB-INF/jsp/nhanvien.jsp" />
     </definition>
+    <definition name="dat-sanh" extends="baseLayout">
+        <put-attribute name="title" value="ĐẶT SẢNH CƯỚI" />
+        <put-attribute name="content" value="/WEB-INF/jsp/dat-sanh.jsp" />
+    </definition>
+    <definition name="dat-menu" extends="baseLayout">
+        <put-attribute name="title" value="ĐẶT MENU" />
+        <put-attribute name="content" value="/WEB-INF/jsp/dat-menu.jsp" />
+    </definition>
+    <definition name="dat-dichvu" extends="baseLayout">
+        <put-attribute name="title" value="ĐẶT DỊCH VỤ" />
+        <put-attribute name="content" value="/WEB-INF/jsp/dat-dichvu.jsp" />
+    </definition>
+    <definition name="dattiec" extends="baseLayout">
+        <put-attribute name="title" value="ĐẶT TIỆC" />
+        <put-attribute name="content" value="/WEB-INF/jsp/dattiec.jsp" />
+    </definition>
 </tiles-definitions>
