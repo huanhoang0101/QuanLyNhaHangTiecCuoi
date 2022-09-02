@@ -145,6 +145,13 @@ public class Menu implements Serializable {
     public void setFile(MultipartFile file) {
         this.file = file;
     }
+    @XmlTransient
+    public Set<CommentMonan> getCommentMonanSet() {
+        return commentMonanSet;
+    }
+    public void setCommentMonanSet(Set<CommentMonan> commentMonanSet) {
+        this.commentMonanSet = commentMonanSet;
+    }
 
     public String getTenMon() {
         return tenMon;
@@ -176,15 +183,6 @@ public class Menu implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    @XmlTransient
-    public Set<CommentMonan> getCommentMonanSet() {
-        return commentMonanSet;
-    }
-
-    public void setCommentMonanSet(Set<CommentMonan> commentMonanSet) {
-        this.commentMonanSet = commentMonanSet;
     }
     
 }
