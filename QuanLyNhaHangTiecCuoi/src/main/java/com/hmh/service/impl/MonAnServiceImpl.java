@@ -62,4 +62,9 @@ public class MonAnServiceImpl implements MonAnService{
     public Menu getMenuById(int id) {
         return this.monAnRepository.getMenuById(id);
     }
+
+    @Override
+    public List<Object[]> countMonAnByCate() {
+        return this.monAnRepository.countMonAnByCate();
+}
 }

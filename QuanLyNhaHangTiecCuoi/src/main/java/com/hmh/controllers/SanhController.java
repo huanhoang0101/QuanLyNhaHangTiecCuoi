@@ -54,5 +54,4 @@ public class SanhController {
         
         return "sanh-detail";
     }
-    
 }
