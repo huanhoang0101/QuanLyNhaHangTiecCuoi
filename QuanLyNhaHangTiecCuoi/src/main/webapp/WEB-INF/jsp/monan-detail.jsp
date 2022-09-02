@@ -16,9 +16,7 @@
         <h1>${menu.tenMon}</h1>
         <h3 class="text-danger">${menu.gia} VND</h3>
         <p>${menu.loaiMon}</p>
-        <div>
-            <input type="button" value="Đặt món" class="btn btn-danger"/>
-        </div>
+        <a href="#" class="btn btn-primary" onclick="addToDatMonan(${menu.maMenu}, '${menu.tenMon}', ${menu.gia})">Đặt món</a>
     </div>
 </div>
 
@@ -30,9 +28,14 @@
     <button class="btn btn-danger" onclick="addCommentMonan('${endpoint}', ${menu.maMenu})">Thêm bình luận</button>
 </form>
 
+<br/>
 <ul id="comments" class="list-group">
     
 </ul> 
+
+<br/>
+<a href="<c:url value="/dat-dichvu"/>" class="btn btn-primary">Đặt dịch vụ</a>
+<a href="<c:url value="/dattiec"/>" class="btn btn-primary">Thanh toán</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>

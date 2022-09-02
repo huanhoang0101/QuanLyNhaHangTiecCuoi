@@ -16,9 +16,7 @@
         <h1>${sanh.ten}</h1>
         <h3 class="text-danger">1 VND</h3>
         <p>${sanh.soBan} bàn</p>
-        <div>
-            <input type="button" value="Đặt bàn" class="btn btn-danger"/>
-        </div>
+        <a href="<c:url value="/dat-menu"/>" class="btn btn-primary" onclick="addToDatSanh(${sanh.maSanh}, '${sanh.ten}', 10000000, '${sanh.soBan}')">Đặt sảnh</a>
     </div>
 </div>
 

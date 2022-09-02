@@ -27,7 +27,7 @@
                     <h4 class="card-title">${s.ten}</h4>
                     <p class="card-text">Số bàn: ${s.soBan}</p>
                     <p class="card-text">
-                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "1" /> VND
+                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "1000000" /> VND
                     </p>
                     <a href="<c:url value="/admin/sanh/${s.maSanh}"/>" class="btn btn-primary">Xem chi tiết</a>
                     <a href="<c:url value="/dat-menu"/>" class="btn btn-primary" onclick="addToDatSanh(${s.maSanh}, '${s.ten}', 1, '${s.soBan}')">Đặt sảnh</a>
