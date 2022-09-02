@@ -18,13 +18,16 @@
         <th></th>
     </tr>
     <c:forEach items="${datsanhcuoi}" var="s">
-        <tr>
+        <tr id="Sanh${s.maSanh}">
             <td>${s.maSanh}</td>
             <td>${s.tenSanh}</td>
             <td>${s.soBan}</td>
             <td>${s.gia} VND</td>
             <td>
-                <input type="button" value="Xóa" class="btn btn-danger" />
+                <input type="button" 
+                       value="Xóa" 
+                       onclick="deleteDatSanh(${s.maSanh})"
+                       class="btn btn-danger" />
             </td>
         </tr>
     </c:forEach> 
@@ -39,18 +42,24 @@
             <th>Số lượng</th>
             <th></th>
         </tr>
-        <c:forEach items="${datmonan}" var="c">
-            <tr>
-                <td>${c.maMenu}</td>
-                <td>${c.tenMon}</td>
-                <td>${c.gia} VND</td>
+        <c:forEach items="${datmonan}" var="m">
+            <tr id="Monan${m.maMenu}">
+                <td>${m.maMenu}</td>
+                <td>${m.tenMon}</td>
+                <td>${m.gia} VND</td>
                 <td>
                     <div class="form-group">
-                        <input type="number" value="${c.soLuong}" class="form-control" />
+                        <input type="number"  
+                               onblur="updateDatMonan(this, ${m.maMenu})"
+                               value="${m.soLuong}" 
+                               class="form-control" />
                     </div>
                 </td>
                 <td>
-                    <input type="button" value="Xóa" class="btn btn-danger" />
+                    <input type="button" 
+                           value="Xóa" 
+                           onclick="deleteDatMonan(${m.maMenu})"
+                           class="btn btn-danger" />
                 </td>
             </tr>
         </c:forEach> 
@@ -66,12 +75,15 @@
             <th></th>
         </tr>
         <c:forEach items="${datDV}" var="dv">
-            <tr>
+            <tr id="Dichvu${dv.maDV}">
                 <td>${dv.maDV}</td>
                 <td>${dv.tenDV}</td>
                 <td>${dv.gia} VND</td>
                 <td>
-                    <input type="button" value="Xóa" class="btn btn-danger" />
+                    <input type="button" 
+                           value="Xóa" 
+                           onclick="deleteDatDichvu(${dv.maDV})"
+                           class="btn btn-danger" />
                 </td>
             </tr>
         </c:forEach> 

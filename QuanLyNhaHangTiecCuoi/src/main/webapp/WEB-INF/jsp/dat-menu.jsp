@@ -32,5 +32,6 @@
     </c:forEach>
 </div>
 <a href="<c:url value="/dat-dichvu"/>" class="btn btn-primary">Đặt dịch vụ</a>
+<a href="<c:url value="/dattiec"/>" class="btn btn-primary">Thanh toán</a>
 
 

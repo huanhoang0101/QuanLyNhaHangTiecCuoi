@@ -36,5 +36,6 @@
         </div>
     </c:forEach>
 </div>
+<a href="<c:url value="/dat-menu"/>" class="btn btn-primary">Đặt món ăn</a>
 <a href="<c:url value="/dattiec"/>" class="btn btn-primary">Thanh toán</a>
 
