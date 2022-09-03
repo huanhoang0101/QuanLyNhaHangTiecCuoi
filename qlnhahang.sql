@@ -118,7 +118,7 @@ CREATE TABLE `comment_monan` (
   KEY `fk_comment_user_monan_idx` (`user_id`),
   CONSTRAINT `fk_comment_monan` FOREIGN KEY (`monan_id`) REFERENCES `menu` (`MaMenu`),
   CONSTRAINT `fk_comment_user_monan` FOREIGN KEY (`user_id`) REFERENCES `khachhang` (`MaKH`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +127,7 @@ CREATE TABLE `comment_monan` (
 
 LOCK TABLES `comment_monan` WRITE;
 /*!40000 ALTER TABLE `comment_monan` DISABLE KEYS */;
-INSERT INTO `comment_monan` VALUES (1,'Món ăn tốt lắm',22,3,'2022-08-14 16:30:00'),(2,'Món ăn rất tuyệt',23,3,'2022-08-14 16:30:00'),(3,'Rất ngon!',21,1,'2022-08-23 16:38:54');
+INSERT INTO `comment_monan` VALUES (1,'Món ăn tốt lắm',22,3,'2022-08-14 16:30:00'),(2,'Món ăn rất tuyệt',23,3,'2022-08-14 16:30:00');
 /*!40000 ALTER TABLE `comment_monan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -390,7 +390,7 @@ CREATE TABLE `sanh` (
 
 LOCK TABLES `sanh` WRITE;
 /*!40000 ALTER TABLE `sanh` DISABLE KEYS */;
-INSERT INTO `sanh` VALUES (1,'Ruby','50','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208838/Sanh/s%E1%BA%A3nh_Ruby_sgzq6y.jpg'),(2,'Saphire','85','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208839/Sanh/s%E1%BA%A3nh_Saphire_w49bxh.jpg'),(3,'Emerald','100','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208838/Sanh/s%E1%BA%A3nh_Emerald_mfithn.jpg'),(4,'Platinum','125','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208838/Sanh/s%E1%BA%A3nh_Platinum_srutrx.jpg'),(5,'Pearl','150','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208838/Sanh/s%E1%BA%A3nh_Pearl_buitjd.jpg'),(6,'Diamond','200','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208838/Sanh/s%E1%BA%A3nh_Diamond_bpvsqc.jpg');
+INSERT INTO `sanh` VALUES (1,'Ruby','50','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208838/Sanh/s%E1%BA%A3nh_Ruby_sgzq6y.jpg'),(2,'Saphỉe','85','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208839/Sanh/s%E1%BA%A3nh_Saphire_w49bxh.jpg'),(3,'Emerald','100','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208838/Sanh/s%E1%BA%A3nh_Emerald_mfithn.jpg'),(4,'Platinum','125','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208838/Sanh/s%E1%BA%A3nh_Platinum_srutrx.jpg'),(5,'Pearl','150','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208838/Sanh/s%E1%BA%A3nh_Pearl_buitjd.jpg'),(6,'Diamond','200','https://res.cloudinary.com/dnrpggpn0/image/upload/v1660208838/Sanh/s%E1%BA%A3nh_Diamond_bpvsqc.jpg');
 /*!40000 ALTER TABLE `sanh` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -403,4 +403,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-23 16:43:53
+-- Dump completed on 2022-08-21 19:14:55

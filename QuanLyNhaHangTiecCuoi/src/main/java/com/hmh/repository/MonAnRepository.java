@@ -18,4 +18,5 @@ public interface MonAnRepository {
     boolean addMonAn(Menu m);
     boolean deleteMonAn(int id);
     Menu getMenuById(int id);
+    List<Object[]> countMonAnByCate();
 }

@@ -4,6 +4,7 @@
  */
 package com.hmh.repository.impl;
 
+import com.hmh.pojo.Hoadonmonan;
 import com.hmh.pojo.Menu;
 import com.hmh.repository.MonAnRepository;
 import java.util.ArrayList;
@@ -110,6 +111,21 @@ public class MonAnRepositoryImpl implements MonAnRepository{
         Session session = this.sessionFactory.getObject().getCurrentSession();
         
         return session.get(Menu.class, id);
+    }
+
+    @Override
+    public List<Object[]> countMonAnByCate() {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Object[]> q = b.createQuery(Object[].class);
+
+        Root rM = q.from(Menu.class);
+        
+        q.multiselect(rM.get("maMenu"), rM.get("tenMon"),rM.get("loaiMon"));
+        q.groupBy(rM.get("maMenu"));
+
+        Query query = session.createQuery(q);
+        return query.getResultList();
     }
     
 }
