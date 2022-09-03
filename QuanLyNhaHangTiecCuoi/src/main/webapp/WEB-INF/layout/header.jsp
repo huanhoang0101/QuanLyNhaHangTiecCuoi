@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
@@ -35,9 +36,9 @@
                             <c:param name="lm" value="" />
                         </c:url>
                         <li><a class="dropdown-item" href="${cUrl}">Tất cả món ăn</a></li>
-                        <c:url value="/" var="cUrl">
-                            <c:param name="lm" value="Khai vị" />
-                        </c:url>
+                            <c:url value="/" var="cUrl">
+                                <c:param name="lm" value="Khai vị" />
+                            </c:url>
                         <li><a class="dropdown-item" href="${cUrl}">Khai vị</a></li>
                             <c:url value="/" var="cUrl">
                                 <c:param name="lm" value="Món chính" />
@@ -52,6 +53,24 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<c:url value="/dat-sanh" />">&#128293; Đặt tiệc</a>
                 </li>
+                <sec:authorize access="!isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link text-info" href="<c:url value="/login" />">Dang nhap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-info" href="<c:url value="/" />">Dang ky</a>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="<c:url value="/login" />">
+                            (<sec:authentication property="principal.username" />)
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="<c:url value="/logout" />">Dang xuat</a>
+                    </li>
+                </sec:authorize>
             </ul>
 
             <c:url value="/" var="action"/>
