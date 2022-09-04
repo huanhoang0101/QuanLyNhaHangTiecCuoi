@@ -5,9 +5,7 @@
  */
 package com.hmh.service;
 
-import com.hmh.pojo.CommentMonan;
 import com.hmh.pojo.CommentSanh;
-import com.hmh.pojo.Menu;
 import com.hmh.pojo.Sanh;
 import java.util.List;
 

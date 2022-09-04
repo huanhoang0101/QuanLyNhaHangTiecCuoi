@@ -8,7 +8,6 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.hmh.pojo.Sanh;
 import com.hmh.repository.SanhRepository;
-import com.hmh.repository.impl.SanhRepositoryImpl;
 import com.hmh.service.SanhService;
 import java.io.IOException;
 import java.util.List;

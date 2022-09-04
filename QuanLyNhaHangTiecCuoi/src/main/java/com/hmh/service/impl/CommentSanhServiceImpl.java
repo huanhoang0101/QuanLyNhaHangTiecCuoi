@@ -5,13 +5,9 @@
  */
 package com.hmh.service.impl;
 
-import com.hmh.pojo.CommentMonan;
 import com.hmh.pojo.CommentSanh;
-import com.hmh.pojo.Menu;
 import com.hmh.pojo.Sanh;
-import com.hmh.repository.CommentMonanRepository;
 import com.hmh.repository.CommentSanhRepository;
-import com.hmh.service.CommentMonanService;
 import com.hmh.service.CommentSanhService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

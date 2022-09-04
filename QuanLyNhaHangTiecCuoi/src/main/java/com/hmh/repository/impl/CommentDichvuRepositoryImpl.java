@@ -6,12 +6,9 @@
 package com.hmh.repository.impl;
 
 import com.hmh.pojo.CommentDichvu;
-import com.hmh.pojo.CommentMonan;
 import com.hmh.pojo.Dichvu;
 import com.hmh.pojo.Khachhang;
-import com.hmh.pojo.Menu;
 import com.hmh.repository.CommentDichvuRepository;
-import com.hmh.repository.CommentMonanRepository;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

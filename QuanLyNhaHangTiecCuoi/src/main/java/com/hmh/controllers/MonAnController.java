@@ -5,13 +5,8 @@
  */
 package com.hmh.controllers;
 
-import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
 import com.hmh.pojo.Menu;
 import com.hmh.service.MonAnService;
-import com.hmh.service.SanhService;
-import java.io.IOException;
-import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
