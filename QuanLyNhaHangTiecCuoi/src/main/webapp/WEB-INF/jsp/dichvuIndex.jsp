@@ -8,7 +8,12 @@
 <%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<h1 class="text-center text-danger">DỊCH VỤ TIỆC CƯỚI</h1>
 
+<h3 class="text-info">CÁC DỊCH VỤ &#10024;</h3>
+<a>Đội ngũ nhân viên chuyên nghiệp và dịch vụ đa dạng sẽ đem đến sự hài lòng 
+    và trở thành địa điểm tổ chức tiệc cưới hoàn hảo cho các cặp đôi.</a>
+<br/><br/>
 
 <ul class="pagination">
     <c:forEach begin="1" end="${Math.ceil(DichVuCounter/8)}" var="m">

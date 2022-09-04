@@ -60,6 +60,7 @@ public class Menu implements Serializable {
     @Size(max = 1000)
     @Column(name = "image")
     private String image;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "monanId")
     private Set<CommentMonan> commentMonanSet;
 

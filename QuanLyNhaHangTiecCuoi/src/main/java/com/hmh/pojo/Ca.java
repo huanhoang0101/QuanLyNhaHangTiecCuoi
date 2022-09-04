@@ -4,6 +4,7 @@
  */
 package com.hmh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -46,6 +47,7 @@ public class Ca implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "TenCa")
     private String tenCa;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "caMaCa")
     private Set<Chitietsanh> chitietsanhSet;
 

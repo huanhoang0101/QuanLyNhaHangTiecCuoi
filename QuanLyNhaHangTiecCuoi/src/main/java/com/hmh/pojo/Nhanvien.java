@@ -4,6 +4,7 @@
  */
 package com.hmh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -77,6 +78,7 @@ public class Nhanvien implements Serializable {
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "MatKhau")
+    @JsonIgnore
     private String matKhau;
 
     public Nhanvien() {

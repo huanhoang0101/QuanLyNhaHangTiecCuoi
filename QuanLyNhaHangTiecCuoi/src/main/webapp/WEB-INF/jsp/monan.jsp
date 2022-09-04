@@ -53,6 +53,7 @@
     <tr>
         <th></th>
         <th>Tên món ăn</th>
+        <th>Loại món</th>
         <th>Giá</th>
         <th></th>
     </tr>

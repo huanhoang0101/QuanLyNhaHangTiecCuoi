@@ -8,6 +8,13 @@
 <%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<h1 class="text-center text-danger">SẢNH TIỆC</h1>
+
+<h3 class="text-info">SẢNH CƯỚI &#10024;</h3>
+<a>Được bày trí theo phong cách Châu Âu sang trọng sẽ thật sự phù hợp cho một hôn lễ ấm cúng.
+    Diện tích có thể linh hoạt với sức chứa lên tới 2000 khách (200 bàn) 
+    nhằm đáp ứng nhiều hình thức và nhu cầu tiệc khác nhau.</a>
+<br/><br/>
 
 <ul class="pagination">
     <c:forEach begin="1" end="${Math.ceil(SanhCounter/8)}" var="ms">
@@ -27,7 +34,7 @@
                     <h4 class="card-title">${s.ten}</h4>
                     <p class="card-text">Số bàn: ${s.soBan}</p>
                     <p class="card-text">
-                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "1" /> VND
+                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "10000000" /> VND
                     </p>
                     <a href="<c:url value="/admin/sanh/${s.maSanh}"/>" class="btn btn-primary">Xem chi tiết</a>
                 </div>

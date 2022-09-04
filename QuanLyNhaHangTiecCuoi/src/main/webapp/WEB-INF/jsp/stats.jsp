@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<h1 class="text-center text-info">THONG KE BAO CAO</h1>
+<h1 class="text-center text-info">THỐNG KÊ BÁO CÁO</h1>
 
 <div class="row">
     <div class="col-md-6 col-xs-12">

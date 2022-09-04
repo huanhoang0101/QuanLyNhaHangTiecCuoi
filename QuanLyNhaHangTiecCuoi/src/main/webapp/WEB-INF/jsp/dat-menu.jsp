@@ -2,7 +2,7 @@
 <%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
+<h1 class="text-center text-danger">ĐẶT MENU MÓN ĂN</h1>
 
 <ul class="pagination">
     <c:forEach begin="1" end="${Math.ceil(MonAnCounter/8)}" var="i">

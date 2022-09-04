@@ -51,6 +51,7 @@ public class Sanh implements Serializable {
     @Size(max = 1000)
     @Column(name = "image")
     private String image;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sanhId")
     private Set<CommentSanh> commentSanhSet;
 

@@ -5,7 +5,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
 <tiles-definitions>
     <definition name="baseLayout" template="/WEB-INF/layout/base.jsp">
         <put-attribute name="title" value="" />
-        <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
+        <put-attribute name="header" value="/WEB-INF/layout/header-monan.jsp" />
         <put-attribute name="content" value="" />
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
     </definition>
@@ -17,6 +17,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="menu" extends="baseLayout">
         <put-attribute name="title" value="QUẢN LÝ MÓN ĂN" />
         <put-attribute name="content" value="/WEB-INF/jsp/monan.jsp" />
+        <put-attribute name="header" value="/WEB-INF/layout/header-monan.jsp" />
     </definition>
     <definition name="monan-detail" extends="baseLayout">
         <put-attribute name="title" value="CHI TIẾT MÓN ĂN" />
@@ -26,6 +27,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="sanhIndex" extends="baseLayout">
         <put-attribute name="title" value="Trang chủ sảnh" />
         <put-attribute name="content" value="/WEB-INF/jsp/sanhIndex.jsp" />
+        <put-attribute name="header" value="/WEB-INF/layout/header-sanh.jsp" />
     </definition>
     <definition name="sanh" extends="baseLayout">
         <put-attribute name="title" value="QUẢN LÝ SẢNH" />
@@ -39,6 +41,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="dichvuIndex" extends="baseLayout">
         <put-attribute name="title" value="Trang chủ dịch vụ" />
         <put-attribute name="content" value="/WEB-INF/jsp/dichvuIndex.jsp" />
+        <put-attribute name="header" value="/WEB-INF/layout/header-dichvu.jsp" />
     </definition>
     <definition name="dichvu" extends="baseLayout">
         <put-attribute name="title" value="QUẢN LÝ DỊCH VỤ" />
@@ -68,9 +71,8 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="dattiec" extends="baseLayout">
         <put-attribute name="title" value="ĐẶT TIỆC" />
         <put-attribute name="content" value="/WEB-INF/jsp/dattiec.jsp" />
-    </definition>
-    
-        <definition name="stats" extends="baseLayout">
+    </definition>    
+    <definition name="stats" extends="baseLayout">
         <put-attribute name="title" value="Thong ke bao cao" />
         <put-attribute name="content"
                        value="/WEB-INF/jsp/stats.jsp" />

@@ -4,6 +4,7 @@
  */
 package com.hmh.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -64,6 +65,7 @@ public class Hoadon implements Serializable {
     @Column(name = "NgayLap")
     @Temporal(TemporalType.TIMESTAMP)
     private Date ngayLap;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hoadonMaHD")
     private Set<Hoadonmonan> hoadonmonanSet;
     @JoinColumn(name = "chitietsanh_MaChiTiet", referencedColumnName = "MaChiTiet")
@@ -72,6 +74,7 @@ public class Hoadon implements Serializable {
     @JoinColumn(name = "khachhang_MaKH", referencedColumnName = "MaKH")
     @ManyToOne(optional = false)
     private Khachhang khachhangMaKH;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hoadonMaHD")
     private Set<Hoadondichvu> hoadondichvuSet;
 

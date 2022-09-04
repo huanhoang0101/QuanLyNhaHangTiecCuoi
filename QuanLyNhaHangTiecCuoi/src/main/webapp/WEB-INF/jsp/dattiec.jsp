@@ -6,6 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <h1 class="text-center text-danger">CHI TIẾT ĐẶT TIỆC</h1>
 
@@ -22,7 +23,11 @@
             <td>${s.maSanh}</td>
             <td>${s.tenSanh}</td>
             <td>${s.soBan}</td>
-            <td>${s.gia} VND</td>
+            <td>
+                <p class="card-text">
+                    <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${s.gia}" /> VND
+                </p>
+            </td>
             <td>
                 <input type="button" 
                        value="Xóa" 
@@ -46,7 +51,11 @@
             <tr id="Monan${m.maMenu}">
                 <td>${m.maMenu}</td>
                 <td>${m.tenMon}</td>
-                <td>${m.gia} VND</td>
+                <td>
+                    <p class="card-text">
+                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${m.gia}" /> VND
+                    </p>
+                </td>
                 <td>
                     <div class="form-group">
                         <input type="number"  
@@ -78,7 +87,11 @@
             <tr id="Dichvu${dv.maDV}">
                 <td>${dv.maDV}</td>
                 <td>${dv.tenDV}</td>
-                <td>${dv.gia} VND</td>
+                <td>
+                    <p class="card-text">
+                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${dv.gia}" /> VND
+                    </p>
+                </td>
                 <td>
                     <input type="button" 
                            value="Xóa" 

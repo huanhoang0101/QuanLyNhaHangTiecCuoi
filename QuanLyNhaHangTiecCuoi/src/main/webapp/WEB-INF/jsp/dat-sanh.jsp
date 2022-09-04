@@ -8,6 +8,7 @@
 <%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<h1 class="text-center text-danger">ĐẶT SẢNH TIỆC CƯỚI</h1>
 
 <ul class="pagination">
     <c:forEach begin="1" end="${Math.ceil(SanhCounter/8)}" var="ms">
@@ -27,10 +28,10 @@
                     <h4 class="card-title">${s.ten}</h4>
                     <p class="card-text">Số bàn: ${s.soBan}</p>
                     <p class="card-text">
-                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "1000000" /> VND
+                        <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "10000000" /> VND
                     </p>
                     <a href="<c:url value="/admin/sanh/${s.maSanh}"/>" class="btn btn-primary">Xem chi tiết</a>
-                    <a href="<c:url value="/dat-menu"/>" class="btn btn-primary" onclick="addToDatSanh(${s.maSanh}, '${s.ten}', 1, '${s.soBan}')">Đặt sảnh</a>
+                    <a href="<c:url value="/dat-menu"/>" class="btn btn-primary" onclick="addToDatSanh(${s.maSanh}, '${s.ten}', 10000000, '${s.soBan}')">Đặt sảnh</a>
                 </div>
             </div>
         </div>
