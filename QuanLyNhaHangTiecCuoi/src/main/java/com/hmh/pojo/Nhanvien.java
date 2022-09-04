@@ -41,19 +41,13 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Nhanvien.findByMatKhau", query = "SELECT n FROM Nhanvien n WHERE n.matKhau = :matKhau")})
 public class Nhanvien implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "MaNV")
-    private Integer maNV;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "TenNV")
     private String tenNV;
     @Basic(optional = false)
-    @NotNull
+    @NotNull()
     @Column(name = "S\u0110T")
     private int sđt;
     @Basic(optional = false)
@@ -75,11 +69,16 @@ public class Nhanvien implements Serializable {
     @Column(name = "TaiKhoan")
     private String taiKhoan;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @NotNull()
+    @Size(min = 1, max = 100)
     @Column(name = "MatKhau")
-    @JsonIgnore
     private String matKhau;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "MaNV")
+    private Integer maNV;
 
     public Nhanvien() {
     }
@@ -104,6 +103,28 @@ public class Nhanvien implements Serializable {
 
     public void setMaNV(Integer maNV) {
         this.maNV = maNV;
+    }
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (maNV != null ? maNV.hashCode() : 0);
+        return hash;
+    }
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Nhanvien)) {
+            return false;
+        }
+        Nhanvien other = (Nhanvien) object;
+        if ((this.maNV == null && other.maNV != null) || (this.maNV != null && !this.maNV.equals(other.maNV))) {
+            return false;
+        }
+        return true;
+    }
+    @Override
+    public String toString() {
+        return "com.hmh.pojo.Nhanvien[ maNV=" + maNV + " ]";
     }
 
     public String getTenNV() {
@@ -160,31 +181,6 @@ public class Nhanvien implements Serializable {
 
     public void setMatKhau(String matKhau) {
         this.matKhau = matKhau;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (maNV != null ? maNV.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Nhanvien)) {
-            return false;
-        }
-        Nhanvien other = (Nhanvien) object;
-        if ((this.maNV == null && other.maNV != null) || (this.maNV != null && !this.maNV.equals(other.maNV))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.hmh.pojo.Nhanvien[ maNV=" + maNV + " ]";
     }
     
 }
