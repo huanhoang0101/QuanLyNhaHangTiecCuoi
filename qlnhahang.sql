@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
--- Host: localhost    Database: qlnhahang
+-- Host: 127.0.0.1    Database: qlnhahang
 -- ------------------------------------------------------
--- Server version	8.0.28
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,9 +24,9 @@ DROP TABLE IF EXISTS `ca`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ca` (
   `MaCa` int NOT NULL AUTO_INCREMENT,
-  `TenCa` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `TenCa` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   PRIMARY KEY (`MaCa`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,7 +56,7 @@ CREATE TABLE `chitietsanh` (
   KEY `fk_chitietsanh_ca1_idx` (`ca_MaCa`),
   CONSTRAINT `fk_chitietsanh_ca1` FOREIGN KEY (`ca_MaCa`) REFERENCES `ca` (`MaCa`),
   CONSTRAINT `fk_chitietsanh_sanh1` FOREIGN KEY (`sanh_MaSanh`) REFERENCES `sanh` (`MaSanh`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +78,7 @@ DROP TABLE IF EXISTS `comment_dichvu`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comment_dichvu` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `content` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `dichvu_id` int NOT NULL,
   `user_id` int NOT NULL,
   `created_date` datetime NOT NULL,
@@ -109,7 +109,7 @@ DROP TABLE IF EXISTS `comment_monan`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comment_monan` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `content` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `monan_id` int NOT NULL,
   `user_id` int NOT NULL,
   `created_date` datetime NOT NULL,
@@ -140,7 +140,7 @@ DROP TABLE IF EXISTS `comment_sanh`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comment_sanh` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `content` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `sanh_id` int NOT NULL,
   `user_id` int NOT NULL,
   `created_date` datetime NOT NULL,
@@ -171,11 +171,11 @@ DROP TABLE IF EXISTS `dichvu`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `dichvu` (
   `MaDV` int NOT NULL,
-  `TenDV` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `TenDV` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `Gia` decimal(20,0) NOT NULL,
-  `image` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`MaDV`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,14 +201,14 @@ CREATE TABLE `hoadon` (
   `chitietsanh_MaChiTiet` int NOT NULL,
   `NgayToChuc` datetime NOT NULL,
   `TongCong` int DEFAULT NULL,
-  `Note` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Note` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `NgayLap` datetime NOT NULL,
   PRIMARY KEY (`MaHD`),
   KEY `fk_hoadon_khachhang_idx` (`khachhang_MaKH`),
   KEY `fk_hoadon_chitietsanh1_idx` (`chitietsanh_MaChiTiet`),
   CONSTRAINT `fk_hoadon_chitietsanh1` FOREIGN KEY (`chitietsanh_MaChiTiet`) REFERENCES `chitietsanh` (`MaChiTiet`),
   CONSTRAINT `fk_hoadon_khachhang` FOREIGN KEY (`khachhang_MaKH`) REFERENCES `khachhang` (`MaKH`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,7 +237,7 @@ CREATE TABLE `hoadondichvu` (
   KEY `fk_hoadondichvu_hoadon1_idx` (`hoadon_MaHD`),
   CONSTRAINT `fk_hoadondichvu_dichvu1` FOREIGN KEY (`dichvu_MaDV`) REFERENCES `dichvu` (`MaDV`),
   CONSTRAINT `fk_hoadondichvu_hoadon1` FOREIGN KEY (`hoadon_MaHD`) REFERENCES `hoadon` (`MaHD`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,7 +268,7 @@ CREATE TABLE `hoadonmonan` (
   KEY `fk_hoadonmonan_hoadon1_idx` (`hoadon_MaHD`),
   CONSTRAINT `fk_hoadonmonan_hoadon1` FOREIGN KEY (`hoadon_MaHD`) REFERENCES `hoadon` (`MaHD`),
   CONSTRAINT `fk_hoadonmonan_menu1` FOREIGN KEY (`menu_MaMenu`) REFERENCES `menu` (`MaMenu`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,15 +290,15 @@ DROP TABLE IF EXISTS `khachhang`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `khachhang` (
   `MaKH` int NOT NULL AUTO_INCREMENT,
-  `TenKH` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `GioiTInh` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `TenKH` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `GioiTInh` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `SĐT` int NOT NULL,
-  `Email` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `TaiKhoan` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `MatKhau` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `Avatar` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `TaiKhoan` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `MatKhau` varchar(100) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `Avatar` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`MaKH`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -307,7 +307,7 @@ CREATE TABLE `khachhang` (
 
 LOCK TABLES `khachhang` WRITE;
 /*!40000 ALTER TABLE `khachhang` DISABLE KEYS */;
-INSERT INTO `khachhang` VALUES (1,'Huỳnh Thị Như Ngọc','Nữ',326598624,'nhungoc@gmail.com','nhungoc','ngoc123',NULL),(2,'Hà Thanh Mai','Nữ',123694896,'thanhmai@gmail.com','thanhmai','mai123',NULL),(3,'Nguyễn Minh Phượng','Nữ',658762469,'phuong@gmail.com','minhphuong','phuong123',NULL),(4,'Huỳnh Ngọc Tú','Nam',964876234,'ngoctu@gmail.com','ngoctu','tu123',NULL),(5,'Lê Thanh Ẩn','Nam',978462315,'thanhan@gmail.com','thanhan','an123',NULL),(6,'Hồ Nguyên Vũ','Nam',986325468,'nguyenvu@gmail.com','nguyenvu','vu123',NULL);
+INSERT INTO `khachhang` VALUES (1,'Huỳnh Thị Như Ngọc','Nữ',326598624,'nhungoc@gmail.com','nhungoc','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO',NULL),(2,'Hà Thanh Mai','Nữ',123694896,'thanhmai@gmail.com','thanhmai','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO',NULL),(3,'Nguyễn Minh Phượng','Nữ',658762469,'phuong@gmail.com','minhphuong','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO',NULL),(4,'Huỳnh Ngọc Tú','Nam',964876234,'ngoctu@gmail.com','ngoctu','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO',NULL),(5,'Lê Thanh Ẩn','Nam',978462315,'thanhan@gmail.com','thanhan','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO',NULL),(6,'Hồ Nguyên Vũ','Nam',986325468,'nguyenvu@gmail.com','nguyenvu','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO',NULL);
 /*!40000 ALTER TABLE `khachhang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,12 +320,12 @@ DROP TABLE IF EXISTS `menu`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `menu` (
   `MaMenu` int NOT NULL AUTO_INCREMENT,
-  `TenMon` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `LoaiMon` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `TenMon` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `LoaiMon` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `Gia` decimal(10,0) NOT NULL,
-  `image` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`MaMenu`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -347,15 +347,15 @@ DROP TABLE IF EXISTS `nhanvien`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `nhanvien` (
   `MaNV` int NOT NULL AUTO_INCREMENT,
-  `TenNV` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `TenNV` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `SĐT` int NOT NULL,
   `NgaySinh` datetime NOT NULL,
-  `GioiTInh` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `LoaiNV` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `TaiKhoan` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `MatKhau` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `GioiTInh` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `LoaiNV` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `TaiKhoan` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `MatKhau` varchar(100) COLLATE utf8mb3_unicode_ci NOT NULL,
   PRIMARY KEY (`MaNV`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -364,7 +364,7 @@ CREATE TABLE `nhanvien` (
 
 LOCK TABLES `nhanvien` WRITE;
 /*!40000 ALTER TABLE `nhanvien` DISABLE KEYS */;
-INSERT INTO `nhanvien` VALUES (1,'Hoàng Minh Huân',912345678,'2001-01-01 00:00:00','Nam','Admin','Admin123','abc123'),(2,'Trần Minh Hoàn',91234567,'2001-02-01 00:00:00','Nam','Admin','Admin456','abc123'),(3,'Thạch Thiên Trí',71234586,'2001-03-01 00:00:00','Nam','Nhân Viên','Tri123','tri123'),(4,'Đặng Văn Quốc Khánh',91235895,'2001-04-01 00:00:00','Nam','Nhân Viên','KhanhNV','khanh123');
+INSERT INTO `nhanvien` VALUES (1,'Hoàng Minh Huân',912345678,'2001-01-01 00:00:00','Nam','Admin','Admin123','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO'),(2,'Trần Minh Hoàn',91234567,'2001-02-01 00:00:00','Nam','Admin','Admin456','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO'),(3,'Thạch Thiên Trí',71234586,'2001-03-01 00:00:00','Nam','Nhân Viên','Tri123','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO'),(4,'Đặng Văn Quốc Khánh',91235895,'2001-04-01 00:00:00','Nam','Nhân Viên','KhanhNV','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO');
 /*!40000 ALTER TABLE `nhanvien` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -377,11 +377,11 @@ DROP TABLE IF EXISTS `sanh`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sanh` (
   `MaSanh` int NOT NULL AUTO_INCREMENT,
-  `Ten` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `SoBan` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `image` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Ten` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `SoBan` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `image` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`MaSanh`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -403,4 +403,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-04 22:21:09
+-- Dump completed on 2022-09-05  2:02:08
