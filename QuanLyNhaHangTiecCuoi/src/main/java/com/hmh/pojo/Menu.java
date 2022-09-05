@@ -45,7 +45,7 @@ public class Menu implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 45, message = "{monan.name.err}")
     @Column(name = "TenMon")
     private String tenMon;
     @Basic(optional = false)
@@ -54,11 +54,14 @@ public class Menu implements Serializable {
     @Column(name = "LoaiMon")
     private String loaiMon;
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{monan.price.minErr}")
     @Column(name = "Gia")
+    @Min(value = 10000, message = "{monan.price.minErr}")
+    @Max(value = 10000000, message = "{monan.price.maxErr}")
     private long gia;
     @Size(max = 1000)
     @Column(name = "image")
+    @NotNull(message = "{monan.image.err}")
     private String image;
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "monanId")

@@ -30,7 +30,6 @@ function loadAdminNhanVien(endpoint) {
                 <td>${data[i].gioiTInh}</td>
                 <td>${data[i].loaiNV}</td>
                 <td>${data[i].taiKhoan}</td>
-                <td>${data[i].matKhau}</td>
                 <td>
                     <div class="spinner-border text-secondary" style="display:none" id="load${data[i].maNV}"></div>
                     <button class='btn btn-danger' onclick="delNhanVien('${endpoint+ "/" + data[i].maNV}', ${data[i].maNV})">Xóa</button>

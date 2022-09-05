@@ -12,12 +12,16 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -39,24 +43,28 @@ import org.springframework.web.multipart.MultipartFile;
 public class Dichvu implements Serializable {
 
     @Basic(optional = false)
-    @NotNull()
-    @Size(min = 1, max = 45)
+    @NotNull
+    @Size(min = 1, max = 45, message = "{dichvu.name.err}")
     @Column(name = "TenDV")
     private String tenDV;
     @Basic(optional = false)
-    @NotNull
+    @NotNull(message = "{dichvu.price.minErr}")
     @Column(name = "Gia")
-    private BigInteger gia;
+    @Min(value = 10000, message = "{dichvu.price.minErr}")
+    @Max(value = 10000000, message = "{dichvu.price.maxErr}")
+    private Long gia;
     @Size(max = 1000)
     @Column(name = "image")
+    @NotNull(message = "{dichvu.image.err}")
     private String image;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "dichvuId")
+    @JsonIgnore
     private Set<CommentDichvu> commentDichvuSet;
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaDV")
     private Integer maDV;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "dichvuMaDV")
@@ -72,7 +80,7 @@ public class Dichvu implements Serializable {
         this.maDV = maDV;
     }
 
-    public Dichvu(Integer maDV, String tenDV, BigInteger gia) {
+    public Dichvu(Integer maDV, String tenDV, Long gia) {
         this.maDV = maDV;
         this.tenDV = tenDV;
         this.gia = gia;
@@ -141,11 +149,11 @@ public class Dichvu implements Serializable {
         this.tenDV = tenDV;
     }
 
-    public BigInteger getGia() {
+    public Long getGia() {
         return gia;
     }
 
-    public void setGia(BigInteger gia) {
+    public void setGia(Long gia) {
         this.gia = gia;
     }
 
