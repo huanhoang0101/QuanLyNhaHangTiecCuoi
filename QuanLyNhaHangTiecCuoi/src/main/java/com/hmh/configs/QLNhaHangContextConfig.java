@@ -5,8 +5,6 @@
  */
 package com.hmh.configs;
 
-import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -74,15 +72,4 @@ public class QLNhaHangContextConfig implements WebMvcConfigurer {
         return resolver;
     }
 
-    @Bean
-    public Cloudinary cloudinary() {
-        Cloudinary c = new Cloudinary(ObjectUtils.asMap(
-            "cloud_name", "dnrpggpn0",
-            "api_key", "719655946352422",
-            "api_secret", "5L0sUTPsvYsPNaDNKIXwYP-39sI",
-            "secure", true
-        ));
-        
-        return c;
-    }
 }

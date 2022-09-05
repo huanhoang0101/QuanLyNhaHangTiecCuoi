@@ -57,6 +57,7 @@ public class Khachhang implements Serializable {
     @Column(name = "S\u0110T")
     private int sđt;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -70,9 +71,8 @@ public class Khachhang implements Serializable {
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 100)
     @Column(name = "MatKhau")
-    @JsonIgnore
     private String matKhau;
     @Size(max = 1000)
     @Column(name = "Avatar")
@@ -156,6 +156,34 @@ public class Khachhang implements Serializable {
         return "com.hmh.pojo.Khachhang[ maKH=" + maKH + " ]";
     }
 
+
+    @XmlTransient
+    public Set<CommentMonan> getCommentMonanSet() {
+        return commentMonanSet;
+    }
+
+    public void setCommentMonanSet(Set<CommentMonan> commentMonanSet) {
+        this.commentMonanSet = commentMonanSet;
+    }
+
+    @XmlTransient
+    public Set<CommentSanh> getCommentSanhSet() {
+        return commentSanhSet;
+    }
+
+    public void setCommentSanhSet(Set<CommentSanh> commentSanhSet) {
+        this.commentSanhSet = commentSanhSet;
+    }
+
+    @XmlTransient
+    public Set<CommentDichvu> getCommentDichvuSet() {
+        return commentDichvuSet;
+    }
+
+    public void setCommentDichvuSet(Set<CommentDichvu> commentDichvuSet) {
+        this.commentDichvuSet = commentDichvuSet;
+    }
+
     public String getTenKH() {
         return tenKH;
     }
@@ -210,33 +238,6 @@ public class Khachhang implements Serializable {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
-    }
-
-    @XmlTransient
-    public Set<CommentMonan> getCommentMonanSet() {
-        return commentMonanSet;
-    }
-
-    public void setCommentMonanSet(Set<CommentMonan> commentMonanSet) {
-        this.commentMonanSet = commentMonanSet;
-    }
-
-    @XmlTransient
-    public Set<CommentSanh> getCommentSanhSet() {
-        return commentSanhSet;
-    }
-
-    public void setCommentSanhSet(Set<CommentSanh> commentSanhSet) {
-        this.commentSanhSet = commentSanhSet;
-    }
-
-    @XmlTransient
-    public Set<CommentDichvu> getCommentDichvuSet() {
-        return commentDichvuSet;
-    }
-
-    public void setCommentDichvuSet(Set<CommentDichvu> commentDichvuSet) {
-        this.commentDichvuSet = commentDichvuSet;
     }
     
 }
