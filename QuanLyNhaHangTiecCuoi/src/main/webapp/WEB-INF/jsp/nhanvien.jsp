@@ -75,7 +75,6 @@
         <th>Giới Tính</th>
         <th>Loại Nhân viên</th>
         <th>Tài Khoản</th>
-        <th>Mật Khẩu</th>
     </tr>
     <tbody id="adminNhanVien">
 

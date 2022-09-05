@@ -42,7 +42,7 @@ public class Sanh implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 45, message = "{sanh.name.err}")
     @Column(name = "Ten")
     private String ten;
     @Size(max = 45)
@@ -50,6 +50,7 @@ public class Sanh implements Serializable {
     private String soBan;
     @Size(max = 1000)
     @Column(name = "image")
+    @NotNull(message = "{sanh.image.err}")
     private String image;
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sanhId")
