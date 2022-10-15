@@ -21,6 +21,7 @@ public class DispatcherServletInit extends AbstractAnnotationConfigDispatcherSer
             SpringSecurityConfig.class
         };
     }
+    //alo alo
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
